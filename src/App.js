@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import HeaderSection from "./components/HeaderSection";
+import BasicForm from "./components/BasicForm";
 function App() {
+  async function onSubmitDataValue(formdata) {
+    const response = await fetch(
+      "https://react-form-data-c9fa5-default-rtdb.firebaseio.com/fdata.json",
+      {
+        method: "POST",
+        body: JSON.stringify(formdata),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HeaderSection />
+      <BasicForm onSubmitData={onSubmitDataValue} />
     </div>
   );
 }

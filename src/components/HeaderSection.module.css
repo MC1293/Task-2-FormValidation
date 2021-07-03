@@ -1,0 +1,15 @@
+h1 {
+  color: rgb(76, 0, 255);
+  text-align: center;
+  text-decoration: underline;
+}
+
+p {
+  color: rgb(116, 21, 241);
+  text-align: center;
+  background-color: lightgrey;
+}
+
+.header {
+  border-style: outset;
+}
